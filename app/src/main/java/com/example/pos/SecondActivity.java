@@ -13,7 +13,7 @@ import android.widget.EditText;
 public class SecondActivity extends AppCompatActivity {
 
     private EditText msg;
-    public static final String EXTRA_MESSAGE = "com.example.android.twoactivities.extra.MESSAGE";
+    public static final String EXTRA_MESSAGE = "com.example.android.pos.extra.MESSAGE";
 
 
     @Override
