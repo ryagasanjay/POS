@@ -9,37 +9,52 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText uprice, quantity,total ;
     private RadioGroup rg;
+    private TextView upriceText;
     private RadioButton radio;
     private static final int tax = 15;
     private double taxesCalculated,totalCalculated;
     private EditText taxes_value;
+    private String radioText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         uprice = findViewById(R.id.upriceValue);
-        quantity = findViewById(R.id.quantity_value);
+        upriceText = findViewById(R.id.uprice);
         rg = findViewById(R.id.radiogroup);
+        quantity = findViewById(R.id.quantity_value);
         taxes_value = findViewById(R.id.taxes_value);
         total = findViewById(R.id.total_value);
+
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                radio = findViewById(checkedId);
+                radioText = radio.getText().toString().toLowerCase();
+                Toast.makeText(MainActivity.this,radio.getText().toString() , Toast.LENGTH_SHORT).show();
+                uprice.setVisibility(View.VISIBLE);
+                upriceText.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
 
+
     public void calculate(View view) {
-        int selectedID = rg.getCheckedRadioButtonId();
-        radio = findViewById(selectedID);
-        String radioText = radio.getText().toString().toLowerCase();
         String text = "25000";
         int quanityt = Integer.valueOf(quantity.getText().toString());
 
-        Toast.makeText(MainActivity.this, radioText, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity.this, radioText, Toast.LENGTH_SHORT).show();
         if (radioText.equalsIgnoreCase("car")) {
             uprice.setText(text);
             taxesCalculated = calculateTaxes( quanityt,25000);
