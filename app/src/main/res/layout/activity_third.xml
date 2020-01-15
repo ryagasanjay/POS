@@ -21,7 +21,10 @@
         android:id="@+id/mess_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="2pt"
+        android:background="#9AFFEB3B"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:fontFamily="casual" />
 </LinearLayout>
