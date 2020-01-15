@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
         taxes_value = findViewById(R.id.taxes_value);
         total = findViewById(R.id.total_value);
 
-
+        /**
+         * Main Activity : this method sets the unit price of the vehicles selected and controls the visibility of the uprice field.
+         */
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -61,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * the calculationUtil method is called and :
+     * 1. Taxes are calculated by calling the method from Calculation Util
+     * 2. Total is calculated by calling the method form the Calculation Util
+     */
     public void calculate(View view) {
         int quanityt = Integer.parseInt(quantity.getText().toString());
         int unitPrice = Integer.parseInt(uprice.getText().toString());
@@ -74,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         total.setText(""+totalCalculated);
     }
 
+    /**
+     *
+     * This method handles the movement from Main screen to the Second screen
+     */
     public void CreateSimpleMessage(View view){
         //Toast.makeText(MainActivity.this,radio.getText(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, SecondActivity.class);

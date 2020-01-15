@@ -24,6 +24,10 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * This handles the functionality of sending the message typed in the text field.
+     */
     public void launchThirdActivitiy(View view){
         Log.d("LOG_CAT","Send button is clicked");
         Intent intent = new Intent(this,ThirdActivity.class);
