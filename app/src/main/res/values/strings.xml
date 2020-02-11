@@ -3,4 +3,5 @@
     <string name="donutDesc">Donuts are glazed and sprinkled with candy.</string>
     <string name="ICS">Icecream Sandwiches have choclate wafers and vanilla filling.</string>
     <string name="icecream">FroYo is self serve premium frozen Yogurt.</string>
+    <string name="compose_email">Compose Email</string>
 </resources>
