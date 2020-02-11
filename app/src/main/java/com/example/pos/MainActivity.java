@@ -1,8 +1,11 @@
 package com.example.pos;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Telephony;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private double taxesCalculated, totalCalculated;
     private EditText taxes_value;
     private String radioText;
+    private Button phone;
 
 
     @Override
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         quantity = findViewById(R.id.quantity_value);
         taxes_value = findViewById(R.id.taxes_value);
         total = findViewById(R.id.total_value);
+        phone = (Button)findViewById(R.id.call);
 
 
         /**
@@ -169,20 +174,37 @@ public class MainActivity extends AppCompatActivity {
             }
             startActivity(sendIntent);
 
-        }
-        else // For early versions, do what worked for you before.
+        } else // For early versions, do what worked for you before.
         {
             Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
             smsIntent.setType("vnd.android-dir/mms-sms");
-            smsIntent.putExtra("address","phoneNumber");
-            smsIntent.putExtra("sms_body","message");
+            smsIntent.putExtra("address", "phoneNumber");
+            smsIntent.putExtra("sms_body", "message");
             startActivity(smsIntent);
         }
     }
 
 
 
+/*
 
+
+      phone.OnClickListener(new View.OnClickListener()
+
+    {
+        public void onClick (View arg0){
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:0377778888"));
+
+        if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(callIntent);
+    }
+    });
+
+*/
 
 
 

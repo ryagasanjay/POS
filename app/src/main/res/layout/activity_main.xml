@@ -83,7 +83,7 @@
                     android:layout_gravity="center|center_horizontal|center_vertical"
                     android:layout_weight="1"
                     android:text="UPrice"
-                    android:visibility="invisible"/>
+                    android:visibility="visible" />
 
                 <EditText
                     android:id="@+id/upriceValue"
@@ -92,8 +92,8 @@
                     android:layout_gravity="center|center_horizontal|center_vertical"
                     android:layout_weight="1"
                     android:ems="15"
-                    android:visibility="invisible"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:visibility="visible" />
 
             </LinearLayout>
 
