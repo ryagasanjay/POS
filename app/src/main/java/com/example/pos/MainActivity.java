@@ -104,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                oncall();
+            }
+        });
 
 
     }
@@ -195,12 +201,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void oncall()
+    {
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:0377778888"));
+
+        if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(callIntent);
+    }
 
 
-/*
 
 
-      phone.OnClickListener(new View.OnClickListener()
+    /* phone.OnClickListener(new View.OnClickListener()
 
     {
         public void onClick (View arg0){
@@ -216,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
     });
 
 */
-
 
 
 
