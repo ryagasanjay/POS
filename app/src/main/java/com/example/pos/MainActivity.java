@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -95,6 +96,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button calc = findViewById(R.id.calculator);
+        calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Calculator.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -130,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
 
+    @SuppressLint("LongLogTag")
     protected void sendEmail() {
         Log.i("Send email", "");
         String[] TO = {""};
