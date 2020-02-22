@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class Calculator extends AppCompatActivity {
 
     EditText view;
-    String num1,num2,num3,num4;
+    String num1="",num2="",num3="",num4="";
     double cal1,cal2;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bmin,bplus,bdiv,bmul,beqal,bclear;
     @Override
