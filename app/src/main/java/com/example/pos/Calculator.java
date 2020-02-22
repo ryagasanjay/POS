@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.pos.Model.Calculatoreq;
+
 public class Calculator extends AppCompatActivity {
 
     EditText view;
@@ -222,31 +224,43 @@ public class Calculator extends AppCompatActivity {
         beqal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(num2 == "+")
-                {
-                    cal2 = Double.parseDouble(num3);
-                    num4 = String.valueOf(cal1 + cal2);
-                }
-                else if(num2 == "-")
-                {
-                    cal2 = Double.parseDouble(num3);
-                    num4 = String.valueOf(cal1 - cal2);
-                }
-                else if(num2 == "/")
-                {
-                    cal2 = Double.parseDouble(num3);
-                    num4 = String.valueOf(cal1 / cal2);
-                }
-                else if(num2 == "*")
-                {
-                    cal2 = Double.parseDouble(num3);
-                    num4 = String.valueOf(cal1 * cal2);
-                }
-                view.setText(num4);
-                num1="";
-                num2="";
-                num3="";cal1=0;cal2=0;
+
+                cal2 = Double.parseDouble(num3);
+                Calculatoreq calc = new Calculatoreq();
+                double result = calc.equal(num2,cal1,cal2);
+                view.setText(""+result);
             }
         });
+
     }
+    /*public double equal(String num, double ca1,double ca2)
+    {
+        if(num == "+")
+        {
+            //cal2 = Double.parseDouble(num3);
+            num4 = String.valueOf(ca1 + ca2);
+        }
+        else if(num == "-")
+        {
+            //cal2 = Double.parseDouble(num3);
+            num4 = String.valueOf(ca1 - ca2);
+        }
+        else if(num == "/")
+        {
+            //cal2 = Double.parseDouble(num3);
+            num4 = String.valueOf(ca1 / ca2);
+        }
+        else if(num == "*")
+        {
+            //cal2 = Double.parseDouble(num3);
+            num4 = String.valueOf(ca1 * ca2);
+        }
+        view.setText(num4);
+        double res = Double.parseDouble(num4);
+        num1="";
+        num2="";
+        num3="";cal1=0;cal2=0;
+        return res;
+
+    }*/
 }
